@@ -8,17 +8,17 @@ const dist = join(root, 'dist');
 const ssrDir = join(root, '.ssr');
 const env = { ...loadEnv('production', root, ''), ...process.env };
 
+const DEFAULT_SITE_URL = 'https://kesavgramvikassamiti.com';
+
 function resolveSiteUrl() {
-  const vercelHost = env.VERCEL_PROJECT_PRODUCTION_URL;
-  const raw = env.SITE_URL || (vercelHost ? `https://${vercelHost}` : '') || env.URL || '';
-  if (!raw) return '';
+  const raw = env.SITE_URL || DEFAULT_SITE_URL;
   const url = new URL(raw);
   if (url.protocol !== 'https:') throw new Error(`SITE_URL must use https: ${raw}`);
   return url.origin;
 }
 
 const siteUrl = resolveSiteUrl();
-const verification = env.GOOGLE_SITE_VERIFICATION || '';
+const verification = env.GOOGLE_SITE_VERIFICATION || 'd2_L4sIkEYPkxoJ6PrOLEsnFp9Mo4PX8b8RUne3c9Zk';
 
 await build({ root, logLevel: 'warn' });
 await build({ root, logLevel: 'warn', build: { ssr: 'src/entry-server.jsx', outDir: '.ssr', emptyOutDir: true, rollupOptions: { output: { entryFileNames: 'entry-server.mjs' } } } });

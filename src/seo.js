@@ -19,22 +19,22 @@ export function parseRoute(pathname) {
 }
 
 const ORG = { en: 'Keshav Gram Vikas Samiti', hi: 'केशव ग्राम विकास समिति' };
-const DISTRICTS = ['Sagar', 'Damoh', 'Vidisha', 'Raisen', 'Jabalpur', 'Narsinghpur', 'Chhindwara', 'Seoni'];
+const DISTRICTS = ['Indore', 'Narsinghpur'];
 
 const COPY = {
   en: {
-    home: { name: 'Home', title: 'Keshav Gram Vikas Samiti | NGO in Narsinghpur, MP', description: 'Registered NGO in Narsinghpur, Madhya Pradesh, serving villages since 2012 through Gaushala seva, education, skills training and rural development.' },
-    about: { name: 'About Us', title: 'About Us | Keshav Gram Vikas Samiti, Narsinghpur', description: 'Keshav Gram Vikas Samiti is a registered society working since 2012 on rural development, education, women’s empowerment and health in 8 MP districts.' },
+    home: { name: 'Home', title: 'Keshav Gram Vikas Samiti | NGO in Madhya Pradesh', description: 'Registered NGO in Madhya Pradesh, operating in Indore and Narsinghpur, serving since 2012 through Gaushala seva, education, skills and rural development.' },
+    about: { name: 'About Us', title: 'About Us | Keshav Gram Vikas Samiti, Madhya Pradesh', description: 'Registered society in Madhya Pradesh, operating in Indore and Narsinghpur since 2012 on rural development, education, women’s empowerment and health.' },
     donate: { name: 'Donations', title: 'Support Gaushala Seva | Keshav Gram Vikas Samiti', description: 'Support cow care, education and rural development with Keshav Gram Vikas Samiti in Madhya Pradesh. Online payments are not active yet.' },
-    contact: { name: 'Contact', title: 'Contact Us | Keshav Gram Vikas Samiti, Narsinghpur', description: 'Contact Keshav Gram Vikas Samiti in Narsinghpur, Madhya Pradesh about Gaushala seva, sponsorship, volunteering, vocational training and our rural work.' },
+    contact: { name: 'Contact', title: 'Contact Us | Keshav Gram Vikas Samiti, Madhya Pradesh', description: 'Contact Keshav Gram Vikas Samiti, an NGO in Madhya Pradesh operating in Indore and Narsinghpur, about Gaushala seva, sponsorship, volunteering, vocational training and our rural work.' },
     privacy: { name: 'Privacy Policy', title: 'Privacy Policy | Keshav Gram Vikas Samiti', description: 'Read how the Keshav Gram Vikas Samiti website uses browser storage, hosting logs, Google Fonts and cookies, and how to contact us about privacy.' },
     notfound: { name: 'Page not found', title: 'Page not found | Keshav Gram Vikas Samiti', description: 'This page could not be found.' },
   },
   hi: {
-    home: { name: 'मुख्य पृष्ठ', title: 'केशव ग्राम विकास समिति | नरसिंहपुर, मध्य प्रदेश की एनजीओ', description: 'नरसिंहपुर, मध्य प्रदेश की पंजीकृत संस्था, जो 2012 से गौशाला सेवा, शिक्षा, कौशल प्रशिक्षण और ग्रामीण विकास के माध्यम से गाँवों की सेवा कर रही है।' },
-    about: { name: 'हमारे बारे में', title: 'हमारे बारे में | केशव ग्राम विकास समिति, नरसिंहपुर', description: 'केशव ग्राम विकास समिति के बारे में जानें, जो 2012 से मध्य प्रदेश के 8 ज़िलों में ग्रामीण विकास, शिक्षा, महिला सशक्तिकरण और स्वास्थ्य पर कार्य कर रही है।' },
+    home: { name: 'मुख्य पृष्ठ', title: 'केशव ग्राम विकास समिति | मध्य प्रदेश की एनजीओ', description: 'मध्य प्रदेश की पंजीकृत एनजीओ, जो इंदौर और नरसिंहपुर में 2012 से गौशाला सेवा, शिक्षा, कौशल प्रशिक्षण और ग्रामीण विकास के माध्यम से सेवा कर रही है।' },
+    about: { name: 'हमारे बारे में', title: 'हमारे बारे में | केशव ग्राम विकास समिति, मध्य प्रदेश', description: 'केशव ग्राम विकास समिति के बारे में जानें, जो 2012 से मध्य प्रदेश के इंदौर और नरसिंहपुर में ग्रामीण विकास, शिक्षा, महिला सशक्तिकरण और स्वास्थ्य पर कार्य कर रही है।' },
     donate: { name: 'दान', title: 'गौशाला सेवा में सहयोग करें | केशव ग्राम विकास समिति', description: 'मध्य प्रदेश में गौ सेवा, शिक्षा और ग्रामीण विकास के लिए केशव ग्राम विकास समिति का सहयोग करें। ऑनलाइन भुगतान अभी शुरू नहीं हुआ है।' },
-    contact: { name: 'संपर्क', title: 'संपर्क करें | केशव ग्राम विकास समिति, नरसिंहपुर', description: 'गौशाला सेवा, प्रायोजन, स्वयंसेवा, व्यावसायिक प्रशिक्षण और ग्रामीण कार्यों के लिए नरसिंहपुर, मध्य प्रदेश की केशव ग्राम विकास समिति से संपर्क करें।' },
+    contact: { name: 'संपर्क', title: 'संपर्क करें | केशव ग्राम विकास समिति, मध्य प्रदेश', description: 'गौशाला सेवा, प्रायोजन, स्वयंसेवा, व्यावसायिक प्रशिक्षण और ग्रामीण कार्यों के लिए मध्य प्रदेश की केशव ग्राम विकास समिति (इंदौर और नरसिंहपुर) से संपर्क करें।' },
     privacy: { name: 'निजता नीति', title: 'निजता नीति | केशव ग्राम विकास समिति', description: 'जानें कि केशव ग्राम विकास समिति की वेबसाइट ब्राउज़र स्टोरेज, होस्टिंग लॉग, Google Fonts और कुकीज़ का उपयोग कैसे करती है।' },
     notfound: { name: 'पृष्ठ नहीं मिला', title: 'पृष्ठ नहीं मिला | केशव ग्राम विकास समिति', description: 'यह पृष्ठ नहीं मिला।' },
   },
@@ -59,7 +59,7 @@ function structuredData(siteUrl, lang, page, copy, url) {
       ...(CONTACT.phone && { telephone: CONTACT.phone }),
       ...(CONTACT.email && { email: CONTACT.email }),
       description: COPY.en.home.description,
-      address: { '@type': 'PostalAddress', addressLocality: 'Narsinghpur', addressRegion: 'Madhya Pradesh', addressCountry: 'IN' },
+      address: { '@type': 'PostalAddress', addressRegion: 'Madhya Pradesh', addressCountry: 'IN' },
       areaServed: DISTRICTS.map(name => ({ '@type': 'AdministrativeArea', name: `${name}, Madhya Pradesh` })),
       knowsAbout: ['Gaushala Seva', 'Rural Development', 'Education', 'Vocational Training', 'Women Empowerment'],
     },

@@ -43,7 +43,7 @@ Public phone and email are set in `src/contact.js`.
 
 Set these build environment variables on your host:
 
-- `SITE_URL`: the live https address, for example `https://your-domain.org`. Required for canonical URLs, sitemap and WhatsApp/social preview images.
+- `SITE_URL`: optional override for the live https address. The default is `https://kesavgramvikassamiti.com`.
 - `GOOGLE_SITE_VERIFICATION`: optional token from Google Search Console's HTML tag method.
 
 Page titles and descriptions are in `src/seo.js`.
