@@ -1,10 +1,10 @@
-import React, { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import React, { createContext, useContext, useMemo } from 'react';
+import { pathFor } from './seo.js';
 
 const STORAGE_KEY = 'kgvs-language';
 
 export const translations = {
   en: {
-    meta: { title: 'Keshav Gram Vikas Samiti | Seva. Support. Change.', description: 'Keshav Gram Vikas Samiti — serving rural communities in Madhya Pradesh since 2012. Support Gaushala seva, education and rural development.' },
     a11y: { language: 'Choose language', emblem: 'Keshav Gram Vikas Samiti emblem', orgEmblem: 'Organisation emblem', orgName: 'Keshav Gram Vikas Samiti', toggleNav: 'Toggle navigation', mission: 'Our mission', showSlide: n => `Show slide ${n}`, play: 'Play carousel', pause: 'Pause carousel', prev: 'Previous slide', next: 'Next slide' },
     top: { location: 'Madhya Pradesh', tagline: 'Rooted in service. Growing together since 2012.' },
     brand: { line1: 'KESHAV GRAM', line2: 'VIKAS SAMITI', small: 'केशव ग्राम विकास समिति' },
@@ -50,10 +50,10 @@ export const translations = {
       footnote: 'Currently accepting no online payments. Donation receipt and tax exemption details will be confirmed by the organisation.',
     },
     callout: { eyebrow: 'TOGETHER, WE CAN DO MORE', title: <>Your kindness can<br/>be someone’s <em>new beginning.</em></>, cta: 'Support Our Mission' },
+    notFound: { title: 'Page not found', text: 'The page you are looking for does not exist.', home: 'Go to Home' },
     footer: { tagline: <>Serving our villages. Caring for every life.<br/>Growing together since 2012.</>, explore: 'Explore', focus: 'Our Focus', rooted: 'Rooted in Madhya Pradesh', location: <>Narsinghpur,<br/>Madhya Pradesh, India</>, rights: year => `© ${year} Keshav Gram Vikas Samiti. All rights reserved.`, made: 'Made with care. Inspired by seva.' },
   },
   hi: {
-    meta: { title: 'केशव ग्राम विकास समिति | सेवा। सहयोग। परिवर्तन।', description: 'केशव ग्राम विकास समिति — 2012 से मध्य प्रदेश के ग्रामीण समुदायों की सेवा में। गौशाला सेवा, शिक्षा और ग्रामीण विकास में सहयोग करें।' },
     a11y: { language: 'भाषा चुनें', emblem: 'केशव ग्राम विकास समिति का प्रतीक चिह्न', orgEmblem: 'संस्था का प्रतीक चिह्न', orgName: 'केशव ग्राम विकास समिति', toggleNav: 'मेन्यू खोलें या बंद करें', mission: 'हमारा उद्देश्य', showSlide: n => `स्लाइड ${n} दिखाएँ`, play: 'स्लाइड शो चलाएँ', pause: 'स्लाइड शो रोकें', prev: 'पिछली स्लाइड', next: 'अगली स्लाइड' },
     top: { location: 'मध्य प्रदेश', tagline: 'सेवा में निहित। 2012 से साथ-साथ आगे बढ़ते हुए।' },
     brand: { line1: 'केशव ग्राम', line2: 'विकास समिति', small: 'Keshav Gram Vikas Samiti' },
@@ -99,48 +99,35 @@ export const translations = {
       footnote: 'फ़िलहाल कोई ऑनलाइन भुगतान स्वीकार नहीं किया जा रहा है। दान रसीद और कर छूट की जानकारी संस्था द्वारा पुष्टि के बाद दी जाएगी।',
     },
     callout: { eyebrow: 'साथ मिलकर हम और कर सकते हैं', title: <>आपकी दया बन सकती है<br/>किसी की <em>नई शुरुआत।</em></>, cta: 'हमारे उद्देश्य में सहयोग करें' },
+    notFound: { title: 'पृष्ठ नहीं मिला', text: 'आप जो पृष्ठ खोज रहे हैं, वह उपलब्ध नहीं है।', home: 'मुख्य पृष्ठ पर जाएँ' },
     footer: { tagline: <>गाँवों की सेवा। हर जीवन की देखभाल।<br/>2012 से साथ-साथ आगे बढ़ते हुए।</>, explore: 'देखें', focus: 'हमारे कार्य', rooted: 'मध्य प्रदेश से जुड़े', location: <>नरसिंहपुर,<br/>मध्य प्रदेश, भारत</>, rights: year => `© ${year} केशव ग्राम विकास समिति। सर्वाधिकार सुरक्षित।`, made: 'स्नेह से निर्मित। सेवा से प्रेरित।' },
   },
 };
 
-function readSavedLanguage() {
-  try {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    return saved === 'hi' ? 'hi' : 'en';
-  } catch {
-    return 'en';
-  }
-}
-
 const LanguageContext = createContext(null);
 
-export function LanguageProvider({ children }) {
-  const [lang, setLang] = useState(readSavedLanguage);
-
-  useEffect(() => {
-    const { title, description } = translations[lang].meta;
-    document.documentElement.lang = lang;
-    document.title = title;
-    document.querySelector('meta[name="description"]')?.setAttribute('content', description);
-    try {
-      localStorage.setItem(STORAGE_KEY, lang);
-    } catch {
-      // The choice still applies for this visit when storage is unavailable.
-    }
-  }, [lang]);
-
-  const value = useMemo(() => ({ lang, setLang, t: translations[lang] }), [lang]);
+export function LanguageProvider({ lang, page, children }) {
+  const value = useMemo(() => ({ lang, page, t: translations[lang], to: target => pathFor(lang, target) }), [lang, page]);
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
 }
 
 export const useLanguage = () => useContext(LanguageContext);
 
+function saveLanguage(lang) {
+  try {
+    localStorage.setItem(STORAGE_KEY, lang);
+  } catch {
+    // The link still opens the chosen language when storage is unavailable.
+  }
+}
+
 export function LanguageToggle() {
-  const { lang, setLang, t } = useLanguage();
+  const { lang, page, t } = useLanguage();
+  const target = page === 'notfound' ? 'home' : page;
   return (
     <div className="lang-toggle" role="group" aria-label={t.a11y.language}>
-      <button type="button" lang="en" aria-label="English" aria-pressed={lang === 'en'} onClick={() => setLang('en')}>EN</button>
-      <button type="button" lang="hi" aria-label="हिन्दी" aria-pressed={lang === 'hi'} onClick={() => setLang('hi')}>हिं</button>
+      <a href={pathFor('en', target)} hrefLang="en" lang="en" aria-label="English" aria-current={lang === 'en' ? 'true' : undefined} onClick={() => saveLanguage('en')}>EN</a>
+      <a href={pathFor('hi', target)} hrefLang="hi" lang="hi" aria-label="हिन्दी" aria-current={lang === 'hi' ? 'true' : undefined} onClick={() => saveLanguage('hi')}>हिं</a>
     </div>
   );
 }
