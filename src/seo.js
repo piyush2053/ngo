@@ -1,7 +1,9 @@
-export const PAGES = ['home', 'about', 'donate'];
+import { CONTACT } from './contact.js';
+
+export const PAGES = ['home', 'about', 'donate', 'contact', 'privacy'];
 export const LANGS = ['en', 'hi'];
 
-const PAGE_PATHS = { home: '', about: 'about/', donate: 'donate/' };
+const PAGE_PATHS = { home: '', about: 'about/', donate: 'donate/', contact: 'contact/', privacy: 'privacy/' };
 
 export function pathFor(lang, page) {
   return `${lang === 'hi' ? '/hi/' : '/'}${PAGE_PATHS[page] ?? ''}`;
@@ -12,7 +14,7 @@ export function parseRoute(pathname) {
   const lang = parts[0] === 'hi' ? 'hi' : 'en';
   if (lang === 'hi') parts.shift();
   if (parts.length === 0) return { lang, page: 'home' };
-  if (parts.length === 1 && (parts[0] === 'about' || parts[0] === 'donate')) return { lang, page: parts[0] };
+  if (parts.length === 1 && PAGES.includes(parts[0]) && parts[0] !== 'home') return { lang, page: parts[0] };
   return { lang, page: 'notfound' };
 }
 
@@ -24,12 +26,16 @@ const COPY = {
     home: { name: 'Home', title: 'Keshav Gram Vikas Samiti | NGO in Narsinghpur, MP', description: 'Registered NGO in Narsinghpur, Madhya Pradesh, serving villages since 2012 through Gaushala seva, education, skills training and rural development.' },
     about: { name: 'About Us', title: 'About Us | Keshav Gram Vikas Samiti, Narsinghpur', description: 'Keshav Gram Vikas Samiti is a registered society working since 2012 on rural development, education, women’s empowerment and health in 8 MP districts.' },
     donate: { name: 'Donations', title: 'Support Gaushala Seva | Keshav Gram Vikas Samiti', description: 'Support cow care, education and rural development with Keshav Gram Vikas Samiti in Madhya Pradesh. Online payments are not active yet.' },
+    contact: { name: 'Contact', title: 'Contact Us | Keshav Gram Vikas Samiti, Narsinghpur', description: 'Contact Keshav Gram Vikas Samiti in Narsinghpur, Madhya Pradesh about Gaushala seva, sponsorship, volunteering, vocational training and our rural work.' },
+    privacy: { name: 'Privacy Policy', title: 'Privacy Policy | Keshav Gram Vikas Samiti', description: 'Read how the Keshav Gram Vikas Samiti website uses browser storage, hosting logs, Google Fonts and cookies, and how to contact us about privacy.' },
     notfound: { name: 'Page not found', title: 'Page not found | Keshav Gram Vikas Samiti', description: 'This page could not be found.' },
   },
   hi: {
     home: { name: 'मुख्य पृष्ठ', title: 'केशव ग्राम विकास समिति | नरसिंहपुर, मध्य प्रदेश की एनजीओ', description: 'नरसिंहपुर, मध्य प्रदेश की पंजीकृत संस्था, जो 2012 से गौशाला सेवा, शिक्षा, कौशल प्रशिक्षण और ग्रामीण विकास के माध्यम से गाँवों की सेवा कर रही है।' },
     about: { name: 'हमारे बारे में', title: 'हमारे बारे में | केशव ग्राम विकास समिति, नरसिंहपुर', description: 'केशव ग्राम विकास समिति के बारे में जानें, जो 2012 से मध्य प्रदेश के 8 ज़िलों में ग्रामीण विकास, शिक्षा, महिला सशक्तिकरण और स्वास्थ्य पर कार्य कर रही है।' },
     donate: { name: 'दान', title: 'गौशाला सेवा में सहयोग करें | केशव ग्राम विकास समिति', description: 'मध्य प्रदेश में गौ सेवा, शिक्षा और ग्रामीण विकास के लिए केशव ग्राम विकास समिति का सहयोग करें। ऑनलाइन भुगतान अभी शुरू नहीं हुआ है।' },
+    contact: { name: 'संपर्क', title: 'संपर्क करें | केशव ग्राम विकास समिति, नरसिंहपुर', description: 'गौशाला सेवा, प्रायोजन, स्वयंसेवा, व्यावसायिक प्रशिक्षण और ग्रामीण कार्यों के लिए नरसिंहपुर, मध्य प्रदेश की केशव ग्राम विकास समिति से संपर्क करें।' },
+    privacy: { name: 'निजता नीति', title: 'निजता नीति | केशव ग्राम विकास समिति', description: 'जानें कि केशव ग्राम विकास समिति की वेबसाइट ब्राउज़र स्टोरेज, होस्टिंग लॉग, Google Fonts और कुकीज़ का उपयोग कैसे करती है।' },
     notfound: { name: 'पृष्ठ नहीं मिला', title: 'पृष्ठ नहीं मिला | केशव ग्राम विकास समिति', description: 'यह पृष्ठ नहीं मिला।' },
   },
 };
@@ -50,6 +56,8 @@ function structuredData(siteUrl, lang, page, copy, url) {
       logo: { '@type': 'ImageObject', url: `${siteUrl}/logo.png` },
       image: `${siteUrl}/og-en.jpg`,
       foundingDate: '2012',
+      ...(CONTACT.phone && { telephone: CONTACT.phone }),
+      ...(CONTACT.email && { email: CONTACT.email }),
       description: COPY.en.home.description,
       address: { '@type': 'PostalAddress', addressLocality: 'Narsinghpur', addressRegion: 'Madhya Pradesh', addressCountry: 'IN' },
       areaServed: DISTRICTS.map(name => ({ '@type': 'AdministrativeArea', name: `${name}, Madhya Pradesh` })),
@@ -57,7 +65,7 @@ function structuredData(siteUrl, lang, page, copy, url) {
     },
     { '@type': 'WebSite', '@id': `${siteUrl}/#website`, url: `${siteUrl}/`, name: ORG.en, alternateName: ORG.hi, inLanguage: ['en-IN', 'hi-IN'], publisher: { '@id': orgId } },
     {
-      '@type': page === 'about' ? 'AboutPage' : 'WebPage',
+      '@type': page === 'about' ? 'AboutPage' : page === 'contact' ? 'ContactPage' : 'WebPage',
       '@id': `${url}#webpage`, url, name: copy.title, description: copy.description,
       inLanguage: lang === 'hi' ? 'hi-IN' : 'en-IN',
       isPartOf: { '@id': `${siteUrl}/#website` }, about: { '@id': orgId },

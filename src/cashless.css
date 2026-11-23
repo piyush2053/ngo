@@ -1,0 +1,28 @@
+.cashless-band{background:#fff6ea;border-bottom:1px solid #f6e3c8;padding:64px 0;scroll-margin-top:16px}
+.cashless-teaser,.cashless-layout{display:grid;grid-template-columns:1.25fr 1fr;gap:72px;align-items:center}
+.cashless-layout{align-items:start}
+.cashless-badge{display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:999px;background:var(--green);color:#fff;font-size:11px;font-weight:800;letter-spacing:1.4px}
+.cashless-band h2{margin:18px 0 16px}
+.cashless-band p{color:#5c665f}
+.cashless-teaser .button{margin-top:6px}
+.cashless-status{display:block;margin-top:12px;color:#7a6242;font-size:12px}
+.cashless-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.cashless-stats>div{display:flex;flex-direction:column;gap:5px;padding:18px 14px;background:#fff;border:1px solid #f1dfc4;border-radius:8px;color:var(--green)}
+.cashless-stats strong{font-family:Manrope,'Noto Sans Devanagari',Arial,sans-serif;font-size:30px;line-height:1.1;color:#253c30}
+.cashless-stats span{font-size:12px;line-height:1.4;color:var(--muted)}
+.cashless-steps{margin:18px 0 24px;padding-left:20px;display:grid;gap:8px;font-size:14px;color:#3f5146}
+.cashless-card{padding:24px;background:#fff;border:1px solid #f1dfc4;border-radius:8px;box-shadow:0 15px 40px #7a4f1610}
+.cashless-progress-head{display:flex;justify-content:space-between;gap:12px;font-size:13px;color:var(--green)}
+.cashless-progress{height:8px;margin:10px 0 18px;overflow:hidden;background:#edf1e9;border-radius:999px}
+.cashless-progress>span{display:block;height:100%;background:var(--orange);transition:width .3s}
+.cashless-video{position:relative;aspect-ratio:16/9;overflow:hidden;background:#17352a;border-radius:6px}
+.cashless-video video{display:block;width:100%;height:100%;object-fit:contain}
+.cashless-play{position:absolute;inset:0;margin:auto;display:grid;place-items:center;width:62px;height:62px;border:0;border-radius:50%;background:#fff;color:var(--green)}
+.cashless-card .cashless-sponsor{margin:8px 0 14px;font-size:12px}
+.cashless-card .cashless-error{margin:0 0 12px;font-size:13px;color:#a33a22}
+.cashless-message{display:flex;flex-direction:column;align-items:center;padding:30px 14px;text-align:center;background:#f6f8f3;border-radius:6px;color:var(--green)}
+.cashless-message h3{margin:12px 0 6px;font-size:19px}
+.cashless-message p{margin:0;font-size:13px;line-height:1.7}
+.cashless-message.done{background:#edf5e8}
+@media(max-width:1000px){.cashless-teaser,.cashless-layout{gap:36px}}
+@media(max-width:700px){.cashless-band{padding:44px 0}.cashless-teaser,.cashless-layout{grid-template-columns:minmax(0,1fr);gap:26px}.cashless-stats>div{padding:14px 10px}.cashless-stats strong{font-size:24px}.cashless-stats span{font-size:11px}.cashless-card{padding:18px}}

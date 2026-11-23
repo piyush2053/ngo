@@ -55,5 +55,5 @@ if (siteUrl) await emit('sitemap.xml', server.sitemapXml(siteUrl));
 await emit('robots.txt', `User-agent: *\nAllow: /\n${siteUrl ? `\nSitemap: ${siteUrl}/sitemap.xml\n` : ''}`);
 await rm(ssrDir, { recursive: true, force: true });
 
-if (siteUrl) console.log(`Prerendered 6 pages for ${siteUrl}`);
+if (siteUrl) console.log(`Prerendered ${server.LANGS.length * server.PAGES.length} pages for ${siteUrl}`);
 else console.warn('\nWARNING: SITE_URL is not set. Canonical URLs, share images, structured data and sitemap.xml were skipped.\n');
