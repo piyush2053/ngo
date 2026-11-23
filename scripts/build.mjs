@@ -35,6 +35,8 @@ function pageHtml(lang, page) {
     .replace(/<!--seo-start-->[\s\S]*<!--seo-end-->/, () => head)
     .replace('<div id="root"></div>', () => `<div ${rootAttrs}>${app}</div>`);
   if (page === 'notfound') html = html.replace(/<script data-route-redirect>[\s\S]*?<\/script>/, '');
+  // Keep Google ads away from the Cashless Seva video flow and from error pages.
+  if (page === 'notfound' || page === 'donate') html = html.replace(/<script[^>]*data-adsense[^>]*><\/script>/, '');
   return html;
 }
 

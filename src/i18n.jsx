@@ -67,13 +67,13 @@ export const translations = {
       reasonsTitle: 'You can contact us for', reasons: ['Gaushala seva and donations', 'Sponsorship and CSR partnerships', 'Volunteering', 'Vocational training', 'Questions about this website', 'Privacy requests'],
     },
     privacy: {
-      label: 'YOUR PRIVACY', title: 'Privacy Policy', updated: 'Last updated: 23 November 2026',
+      label: 'YOUR PRIVACY', title: 'Privacy Policy', updated: 'Last updated: 24 November 2026',
       intro: 'This policy explains what information the Keshav Gram Vikas Samiti website uses and how it is handled.',
       sections: [
         ['Information we collect', 'This website does not ask you to create an account and does not collect your name, phone number, email or payment details. The amount and cause you choose in the donation form stay in your browser and are not sent to us.'],
         ['Information stored on your device', 'We use browser storage to remember your language choice and your Cashless Seva progress for the day. You can remove this at any time by clearing site data in your browser.'],
         ['Services that help run the website', 'Our hosting provider may process technical logs such as IP address, browser type and pages requested in order to deliver and secure the website. Fonts are loaded from Google Fonts, so Google may receive your IP address and browser details.'],
-        ['Advertising and cookies', 'We do not currently show third-party advertising. If we enable Google AdSense, Google and its partners may use cookies or similar technologies to show and measure ads, including ads based on your earlier visits to this and other websites. You can manage personalised ads in Google My Ad Center (myadcenter.google.com) and learn more at policies.google.com/technologies/partner-sites.'],
+        ['Advertising and cookies', 'This website uses Google AdSense to show ads. Google and its partners may use cookies or similar technologies to show and measure ads, including ads based on your earlier visits to this and other websites. You can manage personalised ads in Google My Ad Center (myadcenter.google.com) and learn more at policies.google.com/technologies/partner-sites.'],
         ['Sponsor videos', 'Cashless Seva videos are hosted on this website. We do not share your identity with sponsors.'],
         ['External links', 'Other websites linked from this site have their own privacy practices, and we are not responsible for them.'],
         ['Changes to this policy', 'We may update this policy when our website or services change. The date at the top shows the latest version.'],
@@ -147,13 +147,13 @@ export const translations = {
       reasonsTitle: 'आप इन विषयों पर संपर्क कर सकते हैं', reasons: ['गौशाला सेवा और दान', 'प्रायोजन और CSR साझेदारी', 'स्वयंसेवा', 'व्यावसायिक प्रशिक्षण', 'इस वेबसाइट से जुड़े प्रश्न', 'निजता से जुड़े अनुरोध'],
     },
     privacy: {
-      label: 'आपकी निजता', title: 'निजता नीति', updated: 'अंतिम अपडेट: 23 नवंबर 2026',
+      label: 'आपकी निजता', title: 'निजता नीति', updated: 'अंतिम अपडेट: 24 नवंबर 2026',
       intro: 'यह नीति बताती है कि केशव ग्राम विकास समिति की वेबसाइट कौन सी जानकारी का उपयोग करती है और उसे कैसे संभाला जाता है।',
       sections: [
         ['हम कौन सी जानकारी लेते हैं', 'इस वेबसाइट पर खाता बनाना ज़रूरी नहीं है और यह आपका नाम, फ़ोन नंबर, ईमेल या भुगतान की जानकारी नहीं लेती। दान फ़ॉर्म में चुनी गई राशि और उद्देश्य आपके ब्राउज़र में ही रहते हैं और हमें नहीं भेजे जाते।'],
         ['आपके डिवाइस पर रखी जानकारी', 'आपकी भाषा और उस दिन की कैशलेस सेवा की प्रगति याद रखने के लिए हम ब्राउज़र स्टोरेज का उपयोग करते हैं। आप ब्राउज़र में साइट डेटा साफ़ करके इसे कभी भी हटा सकते हैं।'],
         ['वेबसाइट चलाने में सहायक सेवाएँ', 'वेबसाइट उपलब्ध और सुरक्षित रखने के लिए हमारा होस्टिंग प्रदाता IP पता, ब्राउज़र का प्रकार और देखे गए पेज जैसे तकनीकी लॉग प्रोसेस कर सकता है। फ़ॉन्ट Google Fonts से लोड होते हैं, इसलिए Google को आपका IP पता और ब्राउज़र की जानकारी मिल सकती है।'],
-        ['विज्ञापन और कुकीज़', 'अभी हम किसी तीसरे पक्ष के विज्ञापन नहीं दिखाते। यदि हम Google AdSense शुरू करते हैं, तो Google और उसके साझेदार विज्ञापन दिखाने और मापने के लिए कुकीज़ या ऐसी तकनीकों का उपयोग कर सकते हैं, जिनमें इस और अन्य वेबसाइटों पर आपकी पिछली विज़िट पर आधारित विज्ञापन भी शामिल हैं। आप Google My Ad Center (myadcenter.google.com) में व्यक्तिगत विज्ञापन नियंत्रित कर सकते हैं और policies.google.com/technologies/partner-sites पर अधिक जान सकते हैं।'],
+        ['विज्ञापन और कुकीज़', 'यह वेबसाइट विज्ञापन दिखाने के लिए Google AdSense का उपयोग करती है। Google और उसके साझेदार विज्ञापन दिखाने और मापने के लिए कुकीज़ या ऐसी तकनीकों का उपयोग कर सकते हैं, जिनमें इस और अन्य वेबसाइटों पर आपकी पिछली विज़िट पर आधारित विज्ञापन भी शामिल हैं। आप Google My Ad Center (myadcenter.google.com) में व्यक्तिगत विज्ञापन नियंत्रित कर सकते हैं और policies.google.com/technologies/partner-sites पर अधिक जान सकते हैं।'],
         ['प्रायोजकों के वीडियो', 'कैशलेस सेवा के वीडियो इसी वेबसाइट पर होस्ट होते हैं। हम आपकी पहचान प्रायोजकों के साथ साझा नहीं करते।'],
         ['बाहरी लिंक', 'इस साइट से जुड़ी अन्य वेबसाइटों की अपनी निजता नीतियाँ होती हैं, और हम उनके लिए ज़िम्मेदार नहीं हैं।'],
         ['इस नीति में बदलाव', 'वेबसाइट या सेवाओं में बदलाव होने पर हम यह नीति अपडेट कर सकते हैं। ऊपर दी गई तारीख नवीनतम संस्करण बताती है।'],

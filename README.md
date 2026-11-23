@@ -33,7 +33,7 @@ Visitors can watch 10 sponsor videos of about 30 seconds each. The feature stays
 { "videos": [{ "src": "/seva-videos/sponsor-1.mp4", "sponsor": "Sponsor name", "poster": "/seva-videos/sponsor-1.jpg" }] }
 ```
 
-Use only videos from sponsors who have agreed in writing to fund the seva. Video files must be hosted on this site (paths starting with `/`); external URLs are ignored. Do not connect Google AdSense or Ad Manager to this flow, because their policies restrict paying or donating in return for ad views. If AdSense Auto ads are enabled later, exclude `/donate/` and `/hi/donate/` and keep ads away from the Cashless Seva section on the home pages. Never ask anyone to view or click Google ads. Progress is stored in the visitor's browser, so add server-side verification before billing sponsors per view.
+Use only videos from sponsors who have agreed in writing to fund the seva. Video files must be hosted on this site (paths starting with `/`); external URLs are ignored. Do not connect Google AdSense or Ad Manager to this flow, because their policies restrict paying or donating in return for ad views. The build omits the AdSense script from `/donate/`, `/hi/donate/` and `404.html`. Keep ads away from the Cashless Seva section on the home pages. Never ask anyone to view or click Google ads. Progress is stored in the visitor's browser, so add server-side verification before billing sponsors per view.
 
 ## SEO and link previews
 
