@@ -1,9 +1,9 @@
 import { CONTACT } from './contact.js';
 
-export const PAGES = ['home', 'about', 'donate', 'contact', 'privacy'];
+export const PAGES = ['home', 'about', 'donate', 'contact', 'privacy', 'leaderboard'];
 export const LANGS = ['en', 'hi'];
 
-const PAGE_PATHS = { home: '', about: 'about/', donate: 'donate/', contact: 'contact/', privacy: 'privacy/' };
+const PAGE_PATHS = { home: '', about: 'about/', donate: 'donate/', contact: 'contact/', privacy: 'privacy/', leaderboard: 'leaderboard/' };
 
 export function pathFor(lang, page) {
   return `${lang === 'hi' ? '/hi/' : '/'}${PAGE_PATHS[page] ?? ''}`;
@@ -23,6 +23,7 @@ const DISTRICTS = ['Indore', 'Narsinghpur'];
 
 const COPY = {
   en: {
+    leaderboard: { name: 'Punya Leaderboard', title: 'Punya Leaderboard | Keshav Gram Vikas Samiti', description: 'Explore a sample Punya Leaderboard with 25 fictional contributors. Names and donation amounts are illustrative only.' },
     home: { name: 'Home', title: 'Keshav Gram Vikas Samiti | NGO in Madhya Pradesh', description: 'Registered NGO in Madhya Pradesh, operating in Indore and Narsinghpur, serving since 2012 through Gaushala seva, education, skills and rural development.' },
     about: { name: 'About Us', title: 'About Us | Keshav Gram Vikas Samiti, Madhya Pradesh', description: 'Registered society in Madhya Pradesh, operating in Indore and Narsinghpur since 2012 on rural development, education, women’s empowerment and health.' },
     donate: { name: 'Donations', title: 'Support Gaushala Seva | Keshav Gram Vikas Samiti', description: 'Support cow care, education and rural development with Keshav Gram Vikas Samiti in Madhya Pradesh. Online payments are not active yet.' },
@@ -31,6 +32,7 @@ const COPY = {
     notfound: { name: 'Page not found', title: 'Page not found | Keshav Gram Vikas Samiti', description: 'This page could not be found.' },
   },
   hi: {
+    leaderboard: { name: '????? ?????????', title: '????? ????????? | ???? ????? ????? ?????', description: '25 ???????? ????????? ?? ??? ????? ????????? ?? ????? ?????? ??? ?? ??? ?? ??????? ???? ?????? ????' },
     home: { name: 'मुख्य पृष्ठ', title: 'केशव ग्राम विकास समिति | मध्य प्रदेश की एनजीओ', description: 'मध्य प्रदेश की पंजीकृत एनजीओ, जो इंदौर और नरसिंहपुर में 2012 से गौशाला सेवा, शिक्षा, कौशल प्रशिक्षण और ग्रामीण विकास के माध्यम से सेवा कर रही है।' },
     about: { name: 'हमारे बारे में', title: 'हमारे बारे में | केशव ग्राम विकास समिति, मध्य प्रदेश', description: 'केशव ग्राम विकास समिति के बारे में जानें, जो 2012 से मध्य प्रदेश के इंदौर और नरसिंहपुर में ग्रामीण विकास, शिक्षा, महिला सशक्तिकरण और स्वास्थ्य पर कार्य कर रही है।' },
     donate: { name: 'दान', title: 'गौशाला सेवा में सहयोग करें | केशव ग्राम विकास समिति', description: 'मध्य प्रदेश में गौ सेवा, शिक्षा और ग्रामीण विकास के लिए केशव ग्राम विकास समिति का सहयोग करें। ऑनलाइन भुगतान अभी शुरू नहीं हुआ है।' },
