@@ -1,12 +1,13 @@
 // Illustrative entries only; replace with verified, consented donor records before launch.
+// Donor names are always shown in English, whichever site language is selected.
 export const punyaDonors = [
-  ['राजेश शर्मा', 3851], ['सुनीता वर्मा', 3600], ['मोहन पटेल', 3501],
-  ['कविता तिवारी', 3250], ['सुरेश यादव', 3100], ['अनीता दुबे', 2901],
-  ['विनोद चौहान', 2750], ['पूजा मिश्रा', 2600], ['रमेश गुप्ता', 2501],
-  ['मीना जोशी', 2400], ['अजय ठाकुर', 2251], ['सीमा शुक्ला', 2100],
-  ['दीपक साहू', 2001], ['रेखा पांडे', 1850], ['संजय अग्रवाल', 1751],
-  ['नीलम सोनी', 1600], ['आलोक जैन', 1501], ['प्रिया मालवीय', 1400],
-  ['हरीश सेन', 1251], ['सविता राठौर', 1100], ['नितिन उपाध्याय', 1001],
-  ['वंदना नेमा', 850], ['अशोक लोधी', 751], ['राधा विश्वकर्मा', 601],
-  ['मनोज कुशवाहा', 501],
+  ['Rajesh Sharma', 3851], ['Sunita Verma', 3600], ['Mohan Patel', 3501],
+  ['Kavita Tiwari', 3250], ['Suresh Yadav', 3100], ['Anita Dubey', 2901],
+  ['Vinod Chouhan', 2750], ['Pooja Mishra', 2600], ['Ramesh Gupta', 2501],
+  ['Meena Joshi', 2400], ['Ajay Thakur', 2251], ['Seema Shukla', 2100],
+  ['Deepak Sahu', 2001], ['Rekha Pandey', 1850], ['Sanjay Agrawal', 1751],
+  ['Neelam Soni', 1600], ['Alok Jain', 1501], ['Priya Malviya', 1400],
+  ['Harish Sen', 1251], ['Savita Rathore', 1100], ['Nitin Upadhyay', 1001],
+  ['Vandana Nema', 850], ['Ashok Lodhi', 751], ['Radha Vishwakarma', 601],
+  ['Manoj Kushwaha', 501],
 ].map(([name, amount], index) => ({ id: index + 1, name, amount }));
