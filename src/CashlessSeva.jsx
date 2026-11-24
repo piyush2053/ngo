@@ -6,6 +6,7 @@ import './cashless.css';
 const VIDEOS_REQUIRED = 10;
 const SECONDS_PER_VIDEO = 30;
 const PROGRESS_KEY = 'kgvs-cashless-seva';
+const MONETAG_ZONE = '12341844';
 const statIcons = [Wallet, Play, Clock];
 
 const today = () => new Date().toISOString().slice(0, 10);
@@ -85,6 +86,15 @@ export function CashlessSeva() {
         setVideos(valid);
       });
     return () => { cancelled = true; };
+  }, []);
+
+  useEffect(() => {
+    // Monetag ad tag, loaded only on pages that show the Cashless Seva section.
+    if (document.querySelector(`script[data-zone="${MONETAG_ZONE}"]`)) return;
+    const tag = document.createElement('script');
+    tag.dataset.zone = MONETAG_ZONE;
+    tag.src = 'https://nap5k.com/tag.min.js';
+    document.body.appendChild(tag);
   }, []);
 
   useEffect(() => {
