@@ -27,13 +27,7 @@ The form previews the intended contribution only. No payments or personal inform
 
 ## Cashless Seva
 
-Visitors can watch 10 sponsor videos of about 30 seconds each. The feature stays in its "starting soon" state until `public/seva-sponsors.json` lists at least 10 videos:
-
-```json
-{ "videos": [{ "src": "/seva-videos/sponsor-1.mp4", "sponsor": "Sponsor name", "poster": "/seva-videos/sponsor-1.jpg" }] }
-```
-
-Use only videos from sponsors who have agreed in writing to fund the seva. Video files must be hosted on this site (paths starting with `/`); external URLs are ignored. Do not connect Google AdSense or Ad Manager to this flow, because their policies restrict paying or donating in return for ad views. The build omits the AdSense script from `/donate/`, `/hi/donate/` and `404.html`. Keep ads away from the Cashless Seva section on the home pages. Never ask anyone to view or click Google ads. Progress is stored in the visitor's browser, so add server-side verification before billing sponsors per view.
+The section offers volunteering and awareness opportunities, with responsive Google AdSense Display unit `3830939849` on the donations pages. The shared loader is included once through `index.html`; error pages omit it. Video playback, progress and Monetag have been removed. Ad interactions do not earn donation credit. The former sponsor-video configuration is unused.
 
 ## SEO and link previews
 
