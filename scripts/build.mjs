@@ -53,8 +53,19 @@ for (const lang of server.LANGS) {
 }
 await emit('404.html', pageHtml('en', 'notfound'));
 
-if (siteUrl) await emit('sitemap.xml', server.sitemapXml(siteUrl));
-await emit('robots.txt', `User-agent: *\nAllow: /\n${siteUrl ? `\nSitemap: ${siteUrl}/sitemap.xml\n` : ''}`);
+if (siteUrl) {
+  await emit('sitemap.xml', server.sitemapXml(siteUrl));
+  await emit('llms.txt', server.llmsTxt(siteUrl));
+}
+// Explicitly welcome search and AI-answer crawlers so the NGO can be cited in AI Overviews, ChatGPT, Perplexity, etc.
+const aiBots = ['Googlebot', 'Bingbot', 'Google-Extended', 'GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-SearchBot', 'PerplexityBot', 'Applebot-Extended'];
+await emit('robots.txt', [
+  'User-agent: *',
+  'Allow: /',
+  '',
+  ...aiBots.flatMap(bot => [`User-agent: ${bot}`, 'Allow: /', '']),
+  ...(siteUrl ? [`Sitemap: ${siteUrl}/sitemap.xml`, ''] : []),
+].join('\n'));
 await rm(ssrDir, { recursive: true, force: true });
 
 if (siteUrl) console.log(`Prerendered ${server.LANGS.length * server.PAGES.length} pages for ${siteUrl}`);
